@@ -1,7 +1,9 @@
+from __future__ import annotations
+
 from sqlalchemy import Boolean, DateTime, Integer, String, func,ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from datetime import datetime
-from . import Base,Visit,User
+from app.infrastructure.db.models.base import Base
 
 class Link(Base):
     __tablename__ = "links"
