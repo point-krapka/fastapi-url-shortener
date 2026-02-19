@@ -1,0 +1,4 @@
+sqlalchemy==2.0.46
+fastapi==0.129.0
+uvicorn==0.41.0
+pydantic-settings==2.13.0
