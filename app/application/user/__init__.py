@@ -1,1 +1,1 @@
-from model import UserRegister
+from app.application.user.model import UserRegister

@@ -1,10 +1,10 @@
-# infrastructure/db/repo/user.py
+
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy import select, delete
 from app.infrastructure.db.models.user import User
 from sqlalchemy.exc import IntegrityError
 from app.infrastructure.error import NotFoundError,AlreadyExistsError
-async def create_user(db: AsyncSession, user:User) -> User | None:
+async def db_create_user(db: AsyncSession, user:User) -> User | None:
     try:
         db.add(user)
         await db.commit()

@@ -9,3 +9,6 @@ class NotFoundError(AppError):
 
 class AlreadyExistsError(AppError):
     pass
+
+class IncorrectPassword(AppError):
+    pass
