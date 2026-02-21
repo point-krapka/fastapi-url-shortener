@@ -33,9 +33,8 @@ async def get_link_with_visits(db: AsyncSession, short_url: str) -> Link:
         raise NotFoundError("Посилання не знайдено", "link_not_found")
     return link
 
-async def get_links_by_user(db: AsyncSession, user_id: int) -> list[Link]:
-    result = await db.execute(select(Link).where(Link.user_id == user_id))
-    return list(result.scalars().all())
+
+
 
 async def delete_link(db: AsyncSession, link_id: int) -> None:
     result = await db.execute(delete(Link).where(Link.id == link_id))

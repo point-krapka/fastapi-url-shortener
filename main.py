@@ -2,12 +2,12 @@ from fastapi import FastAPI
 from app.infrastructure.db.database import engine
 from app.infrastructure.db.models.base import Base
 from contextlib import asynccontextmanager
-import app.presentation.user.auth as user
+from app.presentation.user import auth
+from app.presentation.general import index
 from app.infrastructure.db.models.base import Base
 from app.infrastructure.db.models.user import User
 from app.infrastructure.db.models.link import Link
 from app.infrastructure.db.models.visit import Visit
-
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     async with engine.begin() as conn:
@@ -16,4 +16,5 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
-app.include_router(user.router)
+app.include_router(auth.router)
+app.include_router(index.router)
