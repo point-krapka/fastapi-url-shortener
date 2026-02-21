@@ -12,3 +12,4 @@ class AlreadyExistsError(AppError):
 
 class IncorrectPassword(AppError):
     pass
+
