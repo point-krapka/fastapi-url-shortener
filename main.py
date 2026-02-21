@@ -6,6 +6,7 @@ from contextlib import asynccontextmanager
 from app.presentation.user import auth
 from app.presentation.general import pages
 from app.presentation.site import create_link
+from app.presentation.visit import track
 from app.infrastructure.db.models.base import Base
 from app.infrastructure.db.models.user import User
 from app.infrastructure.db.models.link import Link
@@ -55,4 +56,4 @@ async def custom_server_exception_handler(request: Request, exc: Exception):
 app.include_router(auth.router)
 app.include_router(pages.router)
 app.include_router(create_link.router)
-app.include_router(create_link.router)
+app.include_router(track.router)

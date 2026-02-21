@@ -9,12 +9,8 @@ class VisitBase(BaseModel):
     language:str|None = None
     timezone:str|None = None
     size_window: str|None = None
-
-
-
-class VisitRequest(VisitBase):
-    curl_url: str
-
+class VisitTrackRequest(VisitBase):
+    curl_url :str
 
 class VisitResponse(VisitBase):
     visit_id:int

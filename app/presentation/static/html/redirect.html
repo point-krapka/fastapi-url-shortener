@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html
+    lang="en"
+    data-target-url="{{ target_url }}"
+    data-short-url="{{ short_url }}"
+    data-track-endpoint="/api/track"
+>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Tahoma, sans-serif;
+            background: #fffaf5;
+            color: #6b7280;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+        }
+
+        .wait {
+            font-size: 0.95rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="wait">Please wait, redirecting...</div>
+    <noscript>Please enable JavaScript to continue.</noscript>
+    <script src="/static/js/redirect.js"></script>
+</body>
+</html>
