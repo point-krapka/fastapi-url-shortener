@@ -202,9 +202,9 @@ document.addEventListener('DOMContentLoaded', () => {
     inputs.forEach(input => {
         input.addEventListener('blur', () => {
             if (input.value.trim() !== '') {
-                input.style.borderColor = '#6366f1';
+                input.style.borderColor = '#f97316';
             } else {
-                input.style.borderColor = '#e5e7eb';
+                input.style.borderColor = '#fdba74';
             }
         });
     });

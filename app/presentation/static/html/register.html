@@ -3,67 +3,102 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up | Modern App</title>
-    <link rel="stylesheet" href="/static/css/register.css">
+    <title>Register | FastAPI URL Shortener</title>
+    <link rel="stylesheet" href="/static/css/site.css">
+    <link rel="stylesheet" href="/static/css/auth.css">
 </head>
 <body>
-    <div class="wrapper">
-        <div class="glass-card">
-            <div class="brand">
-                <div class="logo">
-<img src="/static/img/scissors.svg" width="40" height="40" alt="" class="flip">
+    <header class="header">
+        <div class="container header-inner">
+            <div class="header-left">
+                <div class="menu-wrap">
+                    <button class="btn btn-outline" type="button" id="menu-btn">Menu</button>
+                    <div class="menu-dropdown" id="menu-dropdown">
+                        <a class="menu-item" href="/dashboard">Dashboard</a>
+                    </div>
                 </div>
-                <h1>Create Account</h1>
-                <p class="welcome-text">Join us today! Please enter your details.</p>
+                <a class="brand-wrap" href="/" style="text-decoration:none;color:inherit;">
+                    <img class="brand-icon" src="/static/img/url.svg" alt="url icon">
+                    <img class="brand-icon" src="/static/img/scissors2.svg" alt="scissors icon">
+                    <div class="brand">fastapi-url-shortener</div>
+                </a>
             </div>
 
-            <form id="register-form" class="register-form" novalidate>
-                <div class="input-group">
-                    <label for="login">Username</label>
-                    <div class="input-wrapper">
-                        <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                            <circle cx="12" cy="7" r="4"></circle>
-                        </svg>
-                        <input type="text" id="login" name="login" 
-                               placeholder="johndoe" 
-                               autocomplete="username"
-                               required>
-                    </div>
-                    <div class="input-hint">Only letters, numbers, and underscore (5-16 chars)</div>
-                    <div class="error-message" id="login-error"></div>
-                </div>
-
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <div class="input-wrapper">
-                        <svg class="input-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                        </svg>
-                        <input type="password" id="password" name="password" 
-                               placeholder="••••••••" 
-                               autocomplete="new-password"
-                               required>
-                    </div>
-                    <div class="input-hint">Only letters, numbers, and underscore (5-16 chars)</div>
-                    <div class="error-message" id="password-error"></div>
-                </div>
-
-                <button type="submit" id="register-button" class="submit-btn">
-                    <span class="button-text">Sign Up</span>
-                    <span class="loader" id="loader" style="display: none;"></span>
-                </button>
-
-                <div id="form-feedback" class="feedback-message" style="display: none;"></div>
-            </form>
-
-            <p class="auth-redirect">
-                Already have an account? <a href="/login">Log in</a>
-            </p>
+            <div class="header-actions">
+                <a class="btn btn-outline" href="/login">Login</a>
+                <a class="btn btn-primary" href="/register">Register</a>
+            </div>
         </div>
-    </div>
+    </header>
 
+    <main class="main">
+        <div class="container">
+            <section class="auth-card">
+                <h1 class="title">Create Account</h1>
+                <p class="subtitle">Join us today and start shortening links.</p>
+
+                <form id="register-form" class="register-form" novalidate>
+                    <div class="input-group">
+                        <label for="login">Username</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                            <input type="text" id="login" name="login" placeholder="johndoe" autocomplete="username" required>
+                        </div>
+                        <div class="input-hint">Only letters, numbers, and underscore (5-16 chars)</div>
+                        <div class="error-message" id="login-error"></div>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <div class="input-wrapper">
+                            <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                            </svg>
+                            <input type="password" id="password" name="password" placeholder="********" autocomplete="new-password" required>
+                        </div>
+                        <div class="input-hint">Only letters, numbers, and underscore (5-16 chars)</div>
+                        <div class="error-message" id="password-error"></div>
+                    </div>
+
+                    <button type="submit" id="register-button" class="submit-btn">
+                        <span class="button-text">Sign Up</span>
+                        <span class="loader" id="loader" style="display: none;"></span>
+                    </button>
+
+                    <div id="form-feedback" class="feedback-message" style="display: none;"></div>
+                </form>
+
+                <p class="auth-redirect">
+                    Already have an account? <a href="/login">Log in</a>
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <a href="https://github.com/point590/fastapi-url-shortener" target="_blank" rel="noopener noreferrer">Source code: https://github.com/point590/fastapi-url-shortener</a>
+        </div>
+    </footer>
+
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const menuDropdown = document.getElementById('menu-dropdown');
+
+        menuBtn.addEventListener('click', () => {
+            menuDropdown.classList.toggle('open');
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!menuDropdown.contains(event.target) && !menuBtn.contains(event.target)) {
+                menuDropdown.classList.remove('open');
+            }
+        });
+    </script>
     <script src="/static/js/register.js"></script>
 </body>
 </html>
