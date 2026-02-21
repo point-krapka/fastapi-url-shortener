@@ -21,7 +21,7 @@ async def register(request:Request):
 
 
 @router.get("/login")
-async def register(request:Request):
+async def login(request:Request):
    return templates.TemplateResponse(request=request, name="login.html")
 
 
