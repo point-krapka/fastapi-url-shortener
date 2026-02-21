@@ -11,11 +11,14 @@ router = APIRouter(prefix='/api',tags=['user'])
 
 
 
-@router.post('/register/')
+@router.post('/register/',status_code=201,
+             responses={
+    409: {"description": "Login already taken"}
+})
 async def register(
                    db: Annotated[AsyncSession, Depends(get_db)], 
                    user:Annotated[UserRegister,Body()],
-                   response: Response):
+                   response: Response) -> UserResponse: 
     try:
         user:UserResponse = await create_user(db,user)
         response.set_cookie(key="access_token",value=create_access_token(user.id))
@@ -24,12 +27,14 @@ async def register(
         raise HTTPException(status_code=409, detail="Login taken")
 
 
-@router.post('/login/')
+@router.post('/login/',responses={
+    401: {"description": "Incorrect login or password"}
+})
 async def login(
     db: Annotated[AsyncSession, Depends(get_db)],
     user: Annotated[UserRegister, Body()],
     response: Response
-):
+)  -> UserResponse:
     try:
         user:UserResponse = await login_user(db, user)
         response.set_cookie(key="access_token",value=create_access_token(user.id))
